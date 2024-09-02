@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "meldexun.losslessrecorder.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixins.losslessrecorder.refmap.json",
+  "mixins": [
+    "LosslessRecorderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

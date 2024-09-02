@@ -1,0 +1,9 @@
+[
+{
+  "modid": "losslessrecorder",
+  "name": "LosslessRecorder",
+  "version": "${version}",
+  "mcversion": "1.12.2",
+  "authorList": ["Meldexun"]
+}
+]
