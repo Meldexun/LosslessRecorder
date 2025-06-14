@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
+import java.util.regex.Pattern;
 
 import javax.imageio.ImageIO;
 
@@ -23,6 +24,7 @@ import meldexun.memoryutil.UnsafeBufferUtil;
 
 public class APNGUtil {
 
+	private static final Pattern IMAGE_PATTERN = Pattern.compile(".*\\.(?:png|jpg|jpeg)");
 	private static final DecimalFormat FORMAT = new DecimalFormat("0000");
 
 	public static void main(String[] args) throws IOException {
@@ -31,7 +33,7 @@ public class APNGUtil {
 			if (args.length < 7) {
 				throw new IllegalArgumentException();
 			}
-			Path[] src = Files.list(Paths.get(args[1])).filter(p -> p.getFileName().toString().endsWith(".png")).toArray(Path[]::new);
+			Path[] src = Files.list(Paths.get(args[1])).filter(p -> IMAGE_PATTERN.matcher(p.getFileName().toString()).matches()).toArray(Path[]::new);
 			int width = Integer.parseInt(args[2]);
 			int height = Integer.parseInt(args[3]);
 			int fps = Integer.parseInt(args[4]);
